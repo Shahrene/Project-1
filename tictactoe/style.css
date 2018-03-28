@@ -1,0 +1,50 @@
+* {
+  box-sizing: border-box;
+}
+
+.grid {
+  /* border: 1px solid black; */
+  width: 360px;
+}
+
+.grid div {
+  height: 100px;
+  width: 100px;
+  float: left;
+  margin: 10px;
+  border: 1px solid black;
+  cursor: pointer;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+div .topleft {
+}
+
+div .topmiddle {
+
+}
+
+div .topright {
+}
+
+div .middleleft {
+}
+
+div .middlemiddle {
+}
+
+div .middleright {
+}
+
+div .bottomleft {
+}
+
+div .bottommiddle {
+}
+
+div .bottomright {
+}
+h1 {
+  font-family: 'Bungee Inline', cursive;
+}
