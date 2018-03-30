@@ -2,6 +2,11 @@
   box-sizing: border-box;
 }
 
+body {
+  margin: auto;
+  width: 50%
+}
+
 .grid {
   /* border: 1px solid black; */
   width: 360px;
@@ -12,39 +17,55 @@
   width: 100px;
   float: left;
   margin: 10px;
-  border: 1px solid black;
+  border: 2px solid black;
   cursor: pointer;
   background-size: contain;
   background-repeat: no-repeat;
 }
 
-div .topleft {
-}
-
-div .topmiddle {
+div .one {
 
 }
 
-div .topright {
+div .two {
+
 }
 
-div .middleleft {
+div .three {
 }
 
-div .middlemiddle {
+div .four {
 }
 
-div .middleright {
+div .five {
 }
 
-div .bottomleft {
+div .six {
 }
 
-div .bottommiddle {
+div .seven {
 }
 
-div .bottomright {
+div .eight {
+}
+
+div .nine {
 }
 h1 {
   font-family: 'Bungee Inline', cursive;
+  font-size: 50px;
+  margin-left: 22px;
+}
+button {
+  display: inline-block;
+  margin-left: 115px;
+  padding: 6px 12px;
+  font-family: Verdana, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  border: 2px solid black;
+  border-radius: 4px;
+
 }

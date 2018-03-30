@@ -5,24 +5,28 @@
     <title></title>
     <link href="https://fonts.googleapis.com/css?family=Bungee+Inline" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animate.css">
   </head>
   <body>
-    <h1>Tic Tac Toe</h1>
-    <div class="game board">
-      <div class="grid">
-        <div class="topleft"></div>
-        <div class="topmiddle"></div>
-        <div class="topright"></div>
-        <div class="middleleft"></div>
-        <div class="middlemiddle"></div>
-        <div class="middleright"></div>
-        <div class="bottomleft"></div>
-        <div class="bottommiddle"></div>
-        <div class="bottomright"></div>
-      </div>
-    </div>
 
-    <button onclick=location="index.html">Refresh</button>
-    <script type="text/javascript" src='app.js'></script>
+    <main>
+      <h1>Tic Tac Toe</h1>
+      <button id="startbutton" onclick="startGame()">Start Game</button>
+        <div class="game board">
+          <div class="animated zoomIn grid">
+            <div class="one"></div>
+            <div class="two"></div>
+            <div class="three"></div>
+            <div class="four"></div>
+            <div class="five"></div>
+            <div class="six"></div>
+            <div class="seven"></div>
+            <div class="eight"></div>
+            <div class="nine"></div>
+          </div>
+        </div>
+        <script type="text/javascript" src='app.js'></script>
+      </main>
   </body>
+  <footer></footer>
 </html>
