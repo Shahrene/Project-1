@@ -3,30 +3,34 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <link href="https://fonts.googleapis.com/css?family=Bungee+Inline" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Inline|Bungee+Shade" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="animate.css">
-  </head>
-  <body>
+    <audio src="sounds/Blip_sound.mp3">
 
+    </audio>
+  </head>
+  <header>
+    <h1>Tic Tac Toe</h1>
+  </header>
+  <body>
     <main>
-      <h1>Tic Tac Toe</h1>
-      <button id="startbutton" onclick="startGame()">Start Game</button>
-        <div class="game board">
+      <button id="startbutton" onclick="startGame()" url="sounds/Boxing_arena_sound.wav">Game On!!</button>
+        <div class="animated fadeIn gameBoard">
           <div class="animated zoomIn grid">
-            <div class="one"></div>
-            <div class="two"></div>
-            <div class="three"></div>
-            <div class="four"></div>
-            <div class="five"></div>
-            <div class="six"></div>
-            <div class="seven"></div>
-            <div class="eight"></div>
-            <div class="nine"></div>
+            <div class="threed TL"></div>
+            <div class="threed TM"></div>
+            <div class="threed TR"></div>
+            <div class="threed ML"></div>
+            <div class="threed MM"></div>
+            <div class="threed MR"></div>
+            <div class="threed BL"></div>
+            <div class="threed BM"></div>
+            <div class="threed BR"></div>
           </div>
         </div>
-        <script type="text/javascript" src='app.js'></script>
+      <script type="text/javascript" src='app.js'></script>
       </main>
   </body>
-  <footer></footer>
+  <footer><p>  </p> </footer>
 </html>

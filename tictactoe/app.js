@@ -30,6 +30,7 @@ var moves = 0;
 var xWins = 0;
 var oWins = 0;
 var drawResult = 0;
+var blip = 'url("sounds/Blip_sound.wav")';
 
 function hideGrid() {
    document.querySelector('.grid').style.display = 'none';
@@ -41,6 +42,16 @@ function startGame() {
   document.querySelector('#startbutton').style.display = 'none';
   // bring the grid back
   document.querySelector('.grid').style.display = '';
+  document.querySelector('.gameBoard').style.border = '2px solid black';
+}
+
+
+var blipSound = function(elem) {
+  allDivs.forEach(function(elem) {
+    event.target.audio = blip;
+    elem.addEventListener('click', blipSound);
+    console.log('blip');
+  });
 }
 
 var clearBoard = function(elem) {
@@ -56,11 +67,14 @@ var gamePlay  = function(event) {
 
     // set currentPlayer to nought
     currentPlayer = oImage
+    blipSound();
   } else {
     // set box to nought
     event.target.style.backgroundImage = oImage
+
     // set currentPlayer to cross
     currentPlayer = xImage
+    blipSound();
   }
   // check for wins
   //check diagonal, horizontal rows, vertifcal colums
@@ -148,9 +162,8 @@ if (moves === 9) {
 console.log(moves);
 
 
-    // clearBoard();
-
 }
+
 allDivs.forEach(function(elem) {
   elem.addEventListener('click', gamePlay);
 });
