@@ -1,6 +1,6 @@
 # Tic Tac Toe
 
-### Play the game here:
+### Play the game here: https://shahrene.github.io/Project-1/
 
 ## Instructions
 
