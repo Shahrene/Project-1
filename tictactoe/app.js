@@ -47,8 +47,8 @@ var clearBoard = function(elem) {
   allDivs.forEach(function(elem) {
     elem.style.backgroundImage = '';
     moves = 0;
-    setInterval("document.getElementById('message').innerHTML = ' ';", 3000);
-    location.reload();
+    //setInterval("document.getElementById('message').innerHTML = ' ';", 4000);
+    //location.reload();
   });
 }
 

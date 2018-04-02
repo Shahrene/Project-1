@@ -76,19 +76,14 @@
     outline-width: 8px;
     box-shadow: inset 0 0 0 25px white;
   }
-
-  footer {
-  width: 50%;
-  height: 50%;
-  position: fixed;
-  }
-
   p {
     font-family: 'Bungee Inline', cursive;
     font-size: 25px;
     text-align: center;
+    animation-name: tada;
+    animation-duration: 4s;
+    animation-iteration-count: 3;
   }
-
 
 @media (max-width: 600px) {
 
