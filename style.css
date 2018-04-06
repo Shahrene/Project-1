@@ -3,42 +3,59 @@
 }
 
   body {
+    background-image: url();
+    width: 70%;
     margin: 0 auto;
-    width: 51%;
-    height: 51%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: white;
   }
 
-  main {
-    padding: 40px 0 40px 0;
-    background-color: white;
+  .container {
+    display: flex;
+    justify-content: center;
   }
 
   .grid {
-    width: 446px;
-    background-color: white;
+    width: 100%;
+    height: 100%;
+    padding: 72px 35px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-image: url('images/boxingringabove.png');
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+  }
+
+  .gameBoard {
+    width: 50%;
+    height: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+  .threed {
+    border: 1px solid #00000052;
+    height: 20%;
+    width: 20%;
+    padding: 13%;
+    margin: 3px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
     animation-delay: 1s;
     animation-iteration-count: 1;
   }
 
-  .gameBoard {
-    overflow: hidden;
-    width: 58%;
-    margin: auto;
-    display: flex;
-    flex-direction: row;
-    animation-delay: 2s;
-    animation-iteration-count: 1;
-  }
-
-  .grid div {
-    height: 120px;
-    width: 120px;
-    float: left;
-    margin: 10px;
-    border: 2px solid black;
-    cursor: pointer;
-    background-size: cover;
-    background-repeat: no-repeat;
+  h1 {
+    font-family: 'Bangers', cursive;
+    margin: 0 auto;
+    width: 43%;
+    font-size: 4em;
+    padding: 30px 0 20px 0;
   }
 
   .threed:hover {
@@ -48,26 +65,15 @@
           transform: translateX(-4px);
   }
 
-  h1 {
-    font-family: 'Bungee Inline', cursive;
-    font-family: 'Bungee Shade', cursive;
-    font-size: 43px;
-    width: 46%;
-    margin: auto;
-    padding: 35px 0 35px 0;
-    background-color: white;
-  }
-
   button {
-    display: inline-block;
-    margin: 180px 280px 280px 280px;
-    padding: 8px 25px;
-    font-family: Verdana, sans-serif;
-    font-size: 18px;
-    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    font-size: 3em;
     text-align: center;
     cursor: pointer;
-    outline: solid 5px #888888;
+    margin-top: 25px;
+
+  }
+    /*outline: solid 5px #888888;
     outline-style: outset;
     transition: outline 0.1s linear;
   }
@@ -76,35 +82,15 @@
     outline-width: 8px;
     box-shadow: inset 0 0 0 25px white;
   }
+  */
+
   p {
-    font-family: 'Bungee Inline', cursive;
-    font-size: 25px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 3em;
+    font-weight: bold;
     text-align: center;
+    margin: -25px;
     animation-name: tada;
-    animation-duration: 4s;
+    animation-duration: 3s;
     animation-iteration-count: 3;
   }
-
-@media (max-width: 600px) {
-
-  .grid div {
-    width: 31%;
-    margin: 4px;
-    float: left;
-    }
-    .gameBoard {
-      width: 100%;
-    }
-    body {
-      width: 65%;
-    }
-    main {
-      padding: 1px;
-    }
-    button {
-      margin: auto;
-    }
-    h1 {
-      width: 85%;
-    }
-}

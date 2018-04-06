@@ -3,18 +3,13 @@ console.log('tic tac toe');
 //create grid (divs), two shapes for peices (X & O)
 //perhaps use .png graphics and animate.
 //add page graphics, theme, sounds, animation later.
-
-//game: two players X and O, who take turns clicking the spaces in a 3×3 grid.
-//The player who succeeds in placing three of their marks in a horizontal, vertical,
-//or diagonal row wins the game.
-
 //on first click (.addEventListener) into the grid (clickable divs in pattern of 3 x 3 squares)
 //the x (font or graphic image) is put into the box (change from blank to X) (.event.target.classList.toggle?),
 //second click into grid the 0 is put into box (alternate font or graphic),
 //repeat until all boxes are filled with x or 0 (draw)
 //or three in a row (diagonal, vertical or horizontal) of either x or 0 is achieved.
 //function to check for win
-//message displayed Draw or X winner or Y winner (.creattextNode) and sound
+//message displayed Draw or X winner or Y winner and sound
 //function to reset board when won or drawn (then use .setTimeout) and add score to player/draws
 //function to score wins - for player X, player O and draws. Adds point to player (X or 0) score
 //if game is won otherwise adds a point to the draw score.
@@ -22,12 +17,13 @@ console.log('tic tac toe');
 
 var allDivs = document.querySelectorAll('.grid div');
 var grid = document.querySelector('.grid');
-var xImage = 'url("images/cross1.png")';
-var oImage = 'url("images/nought1.png")';
+var xImage = 'url("images/black_glove.png")';
+var oImage = 'url("images/red_glove.png")';
 var currentPlayer = xImage;
 var moves = 0;
-var blip = new Audio("sounds/Blip_sound.wav");
-var beep = new Audio("sounds/Beep_ping.wav");
+var jab = new Audio("sounds/Jab_sound.wav");
+var hook = new Audio("sounds/Left_Hook_sound.wav");
+var bell = new Audio("sounds/Boxing_arena_sound.wav");
 
 
 function hideGrid() {
@@ -40,15 +36,16 @@ function startGame() {
   document.querySelector('#startbutton').style.display = 'none';
   // bring the grid back
   document.querySelector('.grid').style.display = '';
-  document.querySelector('.gameBoard').style.border = '2px solid black';
+  document.querySelector('.grid').style.backgroundImage = "images/boxingringabove.png"
+  //document.querySelector('.gameBoard').style.border = '1px solid grey';
+  bell.play()
+  bell.currentTime = 0;
 }
 
 var clearBoard = function(elem) {
   allDivs.forEach(function(elem) {
     elem.style.backgroundImage = '';
     moves = 0;
-    //setInterval("document.getElementById('message').innerHTML = ' ';", 4000);
-    //location.reload();
   });
 }
 
@@ -56,15 +53,15 @@ var gamePlay  = function(event) {
   if (currentPlayer === xImage) {
     // set box to cross
     event.target.style.backgroundImage = xImage
-    blip.play();
-    blip.currentTime = 0;
+    jab.play();
+    jab.currentTime = 0;
     // set currentPlayer to nought
     currentPlayer = oImage
   } else {
     // set box to nought
     event.target.style.backgroundImage = oImage
-    beep.play();
-    beep.currentTime = 0;
+    hook.play();
+    hook.currentTime = 0;
     // set currentPlayer to cross
     currentPlayer = xImage
   }
@@ -75,68 +72,68 @@ var gamePlay  = function(event) {
   var checkForWin = function() {
 
     if (allDivs[0].style.backgroundImage === xImage && allDivs[1].style.backgroundImage === xImage && allDivs[2].style.backgroundImage === xImage) {
-      document.getElementById('message').innerHTML = '<p>Player X Wins!</p>';
+      document.getElementById('message').innerHTML = '<p>Blue Boxer Wins!</p>';
       clearBoard();
     }
     if (allDivs[3].style.backgroundImage === xImage && allDivs[4].style.backgroundImage === xImage && allDivs[5].style.backgroundImage === xImage) {
-      document.getElementById('message').innerHTML = '<p>Player X Wins!</p>';
+      document.getElementById('message').innerHTML = '<p>Blue Boxer Wins!</p>';
       clearBoard();
     }
     if (allDivs[6].style.backgroundImage === xImage && allDivs[7].style.backgroundImage === xImage && allDivs[8].style.backgroundImage === xImage) {
-      document.getElementById('message').innerHTML = '<p>Player X Wins!</p>';
+      document.getElementById('message').innerHTML = '<p>Blue Boxer Wins!</p>';
       clearBoard();
     }
     if (allDivs[0].style.backgroundImage === xImage && allDivs[3].style.backgroundImage === xImage && allDivs[6].style.backgroundImage === xImage) {
-      document.getElementById('message').innerHTML = '<p>Player X Wins!</p>';
+      document.getElementById('message').innerHTML = '<p>Blue Boxer Wins!</p>';
       clearBoard();
     }
     if (allDivs[1].style.backgroundImage === xImage && allDivs[4].style.backgroundImage === xImage && allDivs[7].style.backgroundImage === xImage) {
-      document.getElementById('message').innerHTML = '<p>Player X Wins!</p>';
+      document.getElementById('message').innerHTML = '<p>Blue Boxer Wins!</p>';
       clearBoard();
     }
     if (allDivs[2].style.backgroundImage === xImage && allDivs[5].style.backgroundImage === xImage && allDivs[8].style.backgroundImage === xImage) {
-      document.getElementById('message').innerHTML = '<p>Player X Wins!</p>';
+      document.getElementById('message').innerHTML = '<p>Blue Boxer Wins!</p>';
       clearBoard();
     }
     if (allDivs[0].style.backgroundImage === xImage && allDivs[4].style.backgroundImage === xImage && allDivs[8].style.backgroundImage === xImage) {
-      document.getElementById('message').innerHTML = '<p>Player X Wins!</p>';
+      document.getElementById('message').innerHTML = '<p>Blue Boxer Wins!</p>';
       clearBoard();
     }
     if (allDivs[2].style.backgroundImage === xImage && allDivs[4].style.backgroundImage === xImage && allDivs[6].style.backgroundImage === xImage) {
-      document.getElementById('message').innerHTML = '<p>Player O Wins!</p>';
+      document.getElementById('message').innerHTML = '<p>Red Boxer Wins!</p>';
       clearBoard();
     }
 
     if (allDivs[0].style.backgroundImage === oImage && allDivs[1].style.backgroundImage === oImage && allDivs[2].style.backgroundImage === oImage) {
-      document.getElementById('message').innerHTML = '<p>Player O Wins!</p>';
+      document.getElementById('message').innerHTML = '<p>Red Boxer Wins!</p>';
       clearBoard();
     }
     if (allDivs[3].style.backgroundImage === oImage && allDivs[4].style.backgroundImage === oImage && allDivs[5].style.backgroundImage === oImage) {
-      document.getElementById('message').innerHTML = '<p>Player O Wins!</p>';
+      document.getElementById('message').innerHTML = '<p>Red Boxer Wins!</p>';
       clearBoard();
     }
     if (allDivs[6].style.backgroundImage === oImage && allDivs[7].style.backgroundImage === oImage && allDivs[8].style.backgroundImage === oImage) {
-      document.getElementById('message').innerHTML = '<p>Player O Wins!</p>';
+      document.getElementById('message').innerHTML = '<p>Red Boxer Wins!</p>';
       clearBoard();
     }
     if (allDivs[0].style.backgroundImage === oImage && allDivs[3].style.backgroundImage === oImage && allDivs[6].style.backgroundImage === oImage) {
-      document.getElementById('message').innerHTML = '<p>Player O Wins!</p>';
+      document.getElementById('message').innerHTML = '<p>Red Boxer Wins!</p>';
       clearBoard();
     }
     if (allDivs[1].style.backgroundImage === oImage && allDivs[4].style.backgroundImage === oImage && allDivs[7].style.backgroundImage === oImage) {
-      document.getElementById('message').innerHTML = '<p>Player O Wins!</p>';
+      document.getElementById('message').innerHTML = '<p>Red Boxer Wins!</p>';
       clearBoard();
     }
     if (allDivs[2].style.backgroundImage === oImage && allDivs[5].style.backgroundImage === oImage && allDivs[8].style.backgroundImage === oImage) {
-      document.getElementById('message').innerHTML = '<p>Player O Wins!</p>';
+      document.getElementById('message').innerHTML = '<p>Red Boxer Wins!</p>';
       clearBoard();
     }
     if (allDivs[0].style.backgroundImage === oImage && allDivs[4].style.backgroundImage === oImage && allDivs[8].style.backgroundImage === oImage) {
-      document.getElementById('message').innerHTML = '<p>Player O Wins!</p>';
+      document.getElementById('message').innerHTML = '<p>Red Boxer Wins!</p>';
       clearBoard();
     }
     if (allDivs[2].style.backgroundImage === oImage && allDivs[4].style.backgroundImage === oImage && allDivs[6].style.backgroundImage === oImage) {
-      document.getElementById('message').innerHTML = '<p>Player O Wins!</p>';
+      document.getElementById('message').innerHTML = '<p>Red Boxer Wins!</p>';
       clearBoard();
     }
     }
@@ -145,7 +142,7 @@ var gamePlay  = function(event) {
 moves++
 
 if (moves === 9) {
-  document.getElementById('message').innerHTML = '<p>Its a Draw! Play Again</p>';
+  document.getElementById('message').innerHTML = '<p>It\'s a Draw! Play Again</p>';
   clearBoard();
   }
 console.log(moves);
