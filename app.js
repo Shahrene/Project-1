@@ -17,13 +17,14 @@ console.log('tic tac toe');
 
 var allDivs = document.querySelectorAll('.grid div');
 var grid = document.querySelector('.grid');
-var xImage = 'url("images/black_glove.png")';
-var oImage = 'url("images/red_glove.png")';
-var currentPlayer = xImage;
+var blue = 'url("images/blue_glove.png")';
+var red = 'url("images/red_glove.png")';
+var currentPlayer = blue;
 var moves = 0;
 var jab = new Audio("sounds/Jab_sound.wav");
 var hook = new Audio("sounds/Left_Hook_sound.wav");
 var bell = new Audio("sounds/Boxing_arena_sound.wav");
+var crowd = new Audio("sounds/crowd.mp3");
 
 
 function hideGrid() {
@@ -36,10 +37,13 @@ function startGame() {
   document.querySelector('#startbutton').style.display = 'none';
   // bring the grid back
   document.querySelector('.grid').style.display = '';
-  document.querySelector('.grid').style.backgroundImage = "images/boxingringabove.png"
-  //document.querySelector('.gameBoard').style.border = '1px solid grey';
+  // insert scoring
+  document.getElementById('blueGlove').innerHTML = 'Blue Glove Score: ';
+  document.getElementById('redGlove').innerHTML = 'Red Glove Score: ';
   bell.play()
   bell.currentTime = 0;
+  crowd.play()
+  crowd.currentTime = 0;
 }
 
 var clearBoard = function(elem) {
@@ -50,94 +54,94 @@ var clearBoard = function(elem) {
 }
 
 var gamePlay  = function(event) {
-  if (currentPlayer === xImage) {
+  if (currentPlayer === blue) {
     // set box to cross
-    event.target.style.backgroundImage = xImage
+    event.target.style.backgroundImage = blue
     jab.play();
     jab.currentTime = 0;
     // set currentPlayer to nought
-    currentPlayer = oImage
+    currentPlayer = red
   } else {
     // set box to nought
-    event.target.style.backgroundImage = oImage
+    event.target.style.backgroundImage = red
     hook.play();
     hook.currentTime = 0;
     // set currentPlayer to cross
-    currentPlayer = xImage
+    currentPlayer = blue
   }
 
-  // check for wins
-  //check diagonal, horizontal rows, vertical colums
+  // check for wins - check diagonal, horizontal rows, vertical colums
   //winning combos are 0 1 2, 3 4 5, 6 7 8, 0 3 6, 1 4 7, 2 5 8, 0 4 8, 2 4 6
   var checkForWin = function() {
 
-    if (allDivs[0].style.backgroundImage === xImage && allDivs[1].style.backgroundImage === xImage && allDivs[2].style.backgroundImage === xImage) {
+    if (allDivs[0].style.backgroundImage === blue && allDivs[1].style.backgroundImage === blue && allDivs[2].style.backgroundImage === blue) {
       document.getElementById('message').innerHTML = '<p>Blue Boxer Wins!</p>';
       clearBoard();
     }
-    if (allDivs[3].style.backgroundImage === xImage && allDivs[4].style.backgroundImage === xImage && allDivs[5].style.backgroundImage === xImage) {
+    if (allDivs[3].style.backgroundImage === blue && allDivs[4].style.backgroundImage === blue && allDivs[5].style.backgroundImage === blue) {
       document.getElementById('message').innerHTML = '<p>Blue Boxer Wins!</p>';
       clearBoard();
     }
-    if (allDivs[6].style.backgroundImage === xImage && allDivs[7].style.backgroundImage === xImage && allDivs[8].style.backgroundImage === xImage) {
+    if (allDivs[6].style.backgroundImage === blue && allDivs[7].style.backgroundImage === blue && allDivs[8].style.backgroundImage === blue) {
       document.getElementById('message').innerHTML = '<p>Blue Boxer Wins!</p>';
       clearBoard();
     }
-    if (allDivs[0].style.backgroundImage === xImage && allDivs[3].style.backgroundImage === xImage && allDivs[6].style.backgroundImage === xImage) {
+    if (allDivs[0].style.backgroundImage === blue && allDivs[3].style.backgroundImage === blue && allDivs[6].style.backgroundImage === blue) {
       document.getElementById('message').innerHTML = '<p>Blue Boxer Wins!</p>';
       clearBoard();
     }
-    if (allDivs[1].style.backgroundImage === xImage && allDivs[4].style.backgroundImage === xImage && allDivs[7].style.backgroundImage === xImage) {
+    if (allDivs[1].style.backgroundImage === blue && allDivs[4].style.backgroundImage === blue && allDivs[7].style.backgroundImage === blue) {
       document.getElementById('message').innerHTML = '<p>Blue Boxer Wins!</p>';
       clearBoard();
     }
-    if (allDivs[2].style.backgroundImage === xImage && allDivs[5].style.backgroundImage === xImage && allDivs[8].style.backgroundImage === xImage) {
+    if (allDivs[2].style.backgroundImage === blue && allDivs[5].style.backgroundImage === blue && allDivs[8].style.backgroundImage === blue) {
       document.getElementById('message').innerHTML = '<p>Blue Boxer Wins!</p>';
       clearBoard();
     }
-    if (allDivs[0].style.backgroundImage === xImage && allDivs[4].style.backgroundImage === xImage && allDivs[8].style.backgroundImage === xImage) {
+    if (allDivs[0].style.backgroundImage === blue && allDivs[4].style.backgroundImage === blue && allDivs[8].style.backgroundImage === blue) {
       document.getElementById('message').innerHTML = '<p>Blue Boxer Wins!</p>';
       clearBoard();
     }
-    if (allDivs[2].style.backgroundImage === xImage && allDivs[4].style.backgroundImage === xImage && allDivs[6].style.backgroundImage === xImage) {
+    if (allDivs[2].style.backgroundImage === blue && allDivs[4].style.backgroundImage === blue && allDivs[6].style.backgroundImage === blue) {
       document.getElementById('message').innerHTML = '<p>Red Boxer Wins!</p>';
       clearBoard();
     }
 
-    if (allDivs[0].style.backgroundImage === oImage && allDivs[1].style.backgroundImage === oImage && allDivs[2].style.backgroundImage === oImage) {
+    if (allDivs[0].style.backgroundImage === red && allDivs[1].style.backgroundImage === red && allDivs[2].style.backgroundImage === red) {
       document.getElementById('message').innerHTML = '<p>Red Boxer Wins!</p>';
       clearBoard();
     }
-    if (allDivs[3].style.backgroundImage === oImage && allDivs[4].style.backgroundImage === oImage && allDivs[5].style.backgroundImage === oImage) {
+    if (allDivs[3].style.backgroundImage === red && allDivs[4].style.backgroundImage === red && allDivs[5].style.backgroundImage === red) {
       document.getElementById('message').innerHTML = '<p>Red Boxer Wins!</p>';
       clearBoard();
     }
-    if (allDivs[6].style.backgroundImage === oImage && allDivs[7].style.backgroundImage === oImage && allDivs[8].style.backgroundImage === oImage) {
+    if (allDivs[6].style.backgroundImage === red && allDivs[7].style.backgroundImage === red && allDivs[8].style.backgroundImage === red) {
       document.getElementById('message').innerHTML = '<p>Red Boxer Wins!</p>';
       clearBoard();
     }
-    if (allDivs[0].style.backgroundImage === oImage && allDivs[3].style.backgroundImage === oImage && allDivs[6].style.backgroundImage === oImage) {
+    if (allDivs[0].style.backgroundImage === red && allDivs[3].style.backgroundImage === red && allDivs[6].style.backgroundImage === red) {
       document.getElementById('message').innerHTML = '<p>Red Boxer Wins!</p>';
       clearBoard();
     }
-    if (allDivs[1].style.backgroundImage === oImage && allDivs[4].style.backgroundImage === oImage && allDivs[7].style.backgroundImage === oImage) {
+    if (allDivs[1].style.backgroundImage === red && allDivs[4].style.backgroundImage === red && allDivs[7].style.backgroundImage === red) {
       document.getElementById('message').innerHTML = '<p>Red Boxer Wins!</p>';
       clearBoard();
     }
-    if (allDivs[2].style.backgroundImage === oImage && allDivs[5].style.backgroundImage === oImage && allDivs[8].style.backgroundImage === oImage) {
+    if (allDivs[2].style.backgroundImage === red && allDivs[5].style.backgroundImage === red && allDivs[8].style.backgroundImage === red) {
       document.getElementById('message').innerHTML = '<p>Red Boxer Wins!</p>';
       clearBoard();
     }
-    if (allDivs[0].style.backgroundImage === oImage && allDivs[4].style.backgroundImage === oImage && allDivs[8].style.backgroundImage === oImage) {
+    if (allDivs[0].style.backgroundImage === red && allDivs[4].style.backgroundImage === red && allDivs[8].style.backgroundImage === red) {
       document.getElementById('message').innerHTML = '<p>Red Boxer Wins!</p>';
       clearBoard();
     }
-    if (allDivs[2].style.backgroundImage === oImage && allDivs[4].style.backgroundImage === oImage && allDivs[6].style.backgroundImage === oImage) {
+    if (allDivs[2].style.backgroundImage === red && allDivs[4].style.backgroundImage === red && allDivs[6].style.backgroundImage === red) {
       document.getElementById('message').innerHTML = '<p>Red Boxer Wins!</p>';
       clearBoard();
     }
     }
     checkForWin();
+
 
 moves++
 
@@ -148,58 +152,63 @@ if (moves === 9) {
 console.log(moves);
 
 }
-
+//add click event to all cells
 allDivs.forEach(function(elem) {
   elem.addEventListener('click', gamePlay);
 });
 
 
-//   var winningCombos = [
-//     "0, 1, 2",
-//     "3, 4, 5",
-//     "6, 7, 8",
-//     "0, 3, 6",
-//     "1, 4, 7",
-//     "2, 5, 8",
-//     "0, 4, 8",
-//     "2, 4, 6",
-//];
-
-// var xWinArray = function(winningCombos, xImage) {
-//   var xWinscombo = [];
-//   allDivs.forEach(function(elem) {
-//     document.style.backgroundImage === xImage
-//      xWinscombo.push();
-//   });
-// });
-// return xWinscombo;
-
-// var oWinArray = function(winningCombos, oImage) {
-//   var oWinscombo = [];
-//   allDivs.forEach(function(elem) {
-//     document.style.backgroundImage === oImage
-//      oWinscombo.push();
-//   });
-// });
-// return oWinscombo;
-
-//   var fullGrid = get0Count() + getXCount()
-//   var draw = (fullGrid === 9) && (!crossWins) && (!noughtWins)
+//  var winningCombos = [
+//     [0, 1, 2],
+//     [3, 4, 5],
+//     [6, 7, 8],
+//     [0, 3, 6],
+//     [1, 4, 7],
+//     [2, 5, 8],
+//     [0, 4, 8],
+//     [2, 4, 6],
+//   ];
+//  var countBlueWins = 0;
+//  var countRedWins = 0;
+//  var blueMoves = []
+//  var redMoves = []
+//  var blueScore = document.querySelector(".blueScore")
+//  var redScore = document.querySelector(".redScore")
 //
-//   if (xWins) {
-//     console.log('Player X Wins')
-//   }
-//   if (oWins) {
-//     console.log('Player 0 Wins')
-//   }
-//   if (draw) {
-//     console.log('Its a Draw')
+//  function checkForWin() {
+//   for (var i = 0; i < winningCombos.length; i++) {
+//     var combo = winningCombos[i]
+//
+//     if ((blueMoves.indexOf(combo[0]) > -1)
+//       && (blueMoves.indexOf(combo[1]) > -1)
+//       && (blueMoves.indexOf(combo[2]) > -1)) {
+//       document.getElementById('message').innerHTML = '<p>Blue Boxer Wins!</p>';
+//        crowd.play()
+//        crowd.currentTime = 0;
+//       clearBoard();
+//
+//       countBlueWins = countBlueWins + 1
+//
+//       blueScore.textContent = Number(countBlueWins)
+//
+//     } else if ((redMoves.indexOf(combo[0]) > -1)
+//       && (redMoves.indexOf(combo[1]) > -1)
+//       && (redMoves.indexOf(combo[2]) > -1)) {
+//       document.getElementById('message').innerHTML = '<p>Red Boxer Wins!</p>';
+//        crowd.play()
+//        crowd.currentTime = 0;
+//       clearBoard();
+//
+//       countRedWins = countRedWins + 1
+//
+//       redScore.textContent = Number(countRedWins)
+//
+//     } else {
+//       if (moves === 9) {
+//         document.getElementById('message').innerHTML = '<p>It\'s a Draw! Play Again</p>';
+//         clearBoard();
+//         }
+//       console.log(moves);
+//     }
 //   }
 // }
-// checkForWin();
-
-//allDivs if ximage appears in one of the combos = xWins
-// loop to check if any combo in array has been completed with one of the two images
-// return alert that variable as winner
-// else 9 moves are made and no winner equals draw
-// return draw alert
