@@ -20,12 +20,16 @@ var grid = document.querySelector('.grid');
 var blue = 'url("images/blue_glove.png")';
 var red = 'url("images/red_glove.png")';
 var currentPlayer = blue;
+var countBlueWins = 0;
+var countRedWins = 0;
+var blueScore = document.querySelector('.blueScore');
+var redScore = document.querySelector('.redScore');
 var moves = 0;
 var jab = new Audio("sounds/Jab_sound.wav");
 var hook = new Audio("sounds/Left_Hook_sound.wav");
 var bell = new Audio("sounds/Boxing_arena_sound.wav");
 var crowd = new Audio("sounds/crowd.mp3");
-
+var delay = setTimeout( clearBoard, 3000 );
 
 function hideGrid() {
    document.querySelector('.grid').style.display = 'none';
@@ -38,8 +42,10 @@ function startGame() {
   // bring the grid back
   document.querySelector('.grid').style.display = '';
   // insert scoring
-  document.getElementById('blueGlove').innerHTML = 'Blue Glove Score: ';
-  document.getElementById('redGlove').innerHTML = 'Red Glove Score: ';
+  document.getElementById('blueGlove').innerHTML = 'Blue Boxer Score ';
+  document.querySelector('.blueScore').innerHTML = 0;
+  document.getElementById('redGlove').innerHTML = 'Red Boxer Score ';
+  document.querySelector('.redScore').innerHTML = 0;
   bell.play()
   bell.currentTime = 0;
   crowd.play()
@@ -50,6 +56,8 @@ var clearBoard = function(elem) {
   allDivs.forEach(function(elem) {
     elem.style.backgroundImage = '';
     moves = 0;
+    document.getElementById('message').innerHTML = ' ';
+    //div.classList.remove('tada');
   });
 }
 
@@ -59,6 +67,7 @@ var gamePlay  = function(event) {
     event.target.style.backgroundImage = blue
     jab.play();
     jab.currentTime = 0;
+    moves++
     // set currentPlayer to nought
     currentPlayer = red
   } else {
@@ -66,6 +75,7 @@ var gamePlay  = function(event) {
     event.target.style.backgroundImage = red
     hook.play();
     hook.currentTime = 0;
+    moves++
     // set currentPlayer to cross
     currentPlayer = blue
   }
@@ -76,79 +86,157 @@ var gamePlay  = function(event) {
 
     if (allDivs[0].style.backgroundImage === blue && allDivs[1].style.backgroundImage === blue && allDivs[2].style.backgroundImage === blue) {
       document.getElementById('message').innerHTML = '<p>Blue Boxer Wins!</p>';
-      clearBoard();
+          crowd.play()
+          crowd.currentTime = 0;
+          delay = setTimeout( clearBoard, 3000 );
+
+          countBlueWins = countBlueWins + 1
+          document.querySelector('.blueScore').innerHTML = Number(countBlueWins)
     }
     if (allDivs[3].style.backgroundImage === blue && allDivs[4].style.backgroundImage === blue && allDivs[5].style.backgroundImage === blue) {
       document.getElementById('message').innerHTML = '<p>Blue Boxer Wins!</p>';
-      clearBoard();
+        crowd.play()
+        crowd.currentTime = 0;
+        delay = setTimeout( clearBoard, 3000 );
+
+        countBlueWins = countBlueWins + 1
+        document.querySelector('.blueScore').innerHTML = Number(countBlueWins)
     }
     if (allDivs[6].style.backgroundImage === blue && allDivs[7].style.backgroundImage === blue && allDivs[8].style.backgroundImage === blue) {
       document.getElementById('message').innerHTML = '<p>Blue Boxer Wins!</p>';
-      clearBoard();
+        crowd.play()
+        crowd.currentTime = 0;
+        delay = setTimeout( clearBoard, 3000 );
+
+        countBlueWins = countBlueWins + 1
+        document.querySelector('.blueScore').innerHTML = Number(countBlueWins)
     }
     if (allDivs[0].style.backgroundImage === blue && allDivs[3].style.backgroundImage === blue && allDivs[6].style.backgroundImage === blue) {
       document.getElementById('message').innerHTML = '<p>Blue Boxer Wins!</p>';
-      clearBoard();
+        crowd.play()
+        crowd.currentTime = 0;
+        delay = setTimeout( clearBoard, 3000 );
+
+        countBlueWins = countBlueWins + 1
+        document.querySelector('.blueScore').innerHTML = Number(countBlueWins)
     }
     if (allDivs[1].style.backgroundImage === blue && allDivs[4].style.backgroundImage === blue && allDivs[7].style.backgroundImage === blue) {
       document.getElementById('message').innerHTML = '<p>Blue Boxer Wins!</p>';
-      clearBoard();
+        crowd.play()
+        crowd.currentTime = 0;
+        delay = setTimeout( clearBoard, 3000 );
+
+        countBlueWins = countBlueWins + 1
+        document.querySelector('.blueScore').innerHTML = Number(countBlueWins)
     }
     if (allDivs[2].style.backgroundImage === blue && allDivs[5].style.backgroundImage === blue && allDivs[8].style.backgroundImage === blue) {
       document.getElementById('message').innerHTML = '<p>Blue Boxer Wins!</p>';
-      clearBoard();
+        crowd.play()
+        crowd.currentTime = 0;
+        delay = setTimeout( clearBoard, 3000 );
+
+        countBlueWins = countBlueWins + 1
+        document.querySelector('.blueScore').innerHTML = Number(countBlueWins)
     }
     if (allDivs[0].style.backgroundImage === blue && allDivs[4].style.backgroundImage === blue && allDivs[8].style.backgroundImage === blue) {
       document.getElementById('message').innerHTML = '<p>Blue Boxer Wins!</p>';
-      clearBoard();
+        crowd.play()
+        crowd.currentTime = 0;
+        delay = setTimeout( clearBoard, 3000 );
+
+        countBlueWins = countBlueWins + 1
+        document.querySelector('.blueScore').innerHTML = Number(countBlueWins)
     }
     if (allDivs[2].style.backgroundImage === blue && allDivs[4].style.backgroundImage === blue && allDivs[6].style.backgroundImage === blue) {
       document.getElementById('message').innerHTML = '<p>Red Boxer Wins!</p>';
-      clearBoard();
+        crowd.play()
+        crowd.currentTime = 0;
+        delay = setTimeout( clearBoard, 3000 );
+
+        countBlueWins = countBlueWins + 1
+        document.querySelector('.blueScore').innerHTML = Number(countBlueWins)
     }
 
     if (allDivs[0].style.backgroundImage === red && allDivs[1].style.backgroundImage === red && allDivs[2].style.backgroundImage === red) {
       document.getElementById('message').innerHTML = '<p>Red Boxer Wins!</p>';
-      clearBoard();
+          crowd.play()
+          crowd.currentTime = 0;
+          delay = setTimeout( clearBoard, 3000 );
+
+          countRedWins = countRedWins + 1
+          document.querySelector('.redScore').innerHTML  = Number(countRedWins)
     }
     if (allDivs[3].style.backgroundImage === red && allDivs[4].style.backgroundImage === red && allDivs[5].style.backgroundImage === red) {
       document.getElementById('message').innerHTML = '<p>Red Boxer Wins!</p>';
-      clearBoard();
+        crowd.play()
+        crowd.currentTime = 0;
+        delay = setTimeout( clearBoard, 3000 );
+
+        countRedWins = countRedWins + 1
+        document.querySelector('.redScore').innerHTML  = Number(countRedWins)
     }
     if (allDivs[6].style.backgroundImage === red && allDivs[7].style.backgroundImage === red && allDivs[8].style.backgroundImage === red) {
       document.getElementById('message').innerHTML = '<p>Red Boxer Wins!</p>';
-      clearBoard();
+        crowd.play()
+        crowd.currentTime = 0;
+        delay = setTimeout( clearBoard, 3000 );
+
+        countRedWins = countRedWins + 1
+        document.querySelector('.redScore').innerHTML  = Number(countRedWins)
     }
     if (allDivs[0].style.backgroundImage === red && allDivs[3].style.backgroundImage === red && allDivs[6].style.backgroundImage === red) {
       document.getElementById('message').innerHTML = '<p>Red Boxer Wins!</p>';
-      clearBoard();
+        crowd.play()
+        crowd.currentTime = 0;
+        delay = setTimeout( clearBoard, 3000 );
+
+        countRedWins = countRedWins + 1
+        document.querySelector('.redScore').innerHTML  = Number(countRedWins)
     }
     if (allDivs[1].style.backgroundImage === red && allDivs[4].style.backgroundImage === red && allDivs[7].style.backgroundImage === red) {
       document.getElementById('message').innerHTML = '<p>Red Boxer Wins!</p>';
-      clearBoard();
+        crowd.play()
+        crowd.currentTime = 0;
+        delay = setTimeout( clearBoard, 3000 );
+
+        countRedWins = countRedWins + 1
+        document.querySelector('.redScore').innerHTML  = Number(countRedWins)
     }
     if (allDivs[2].style.backgroundImage === red && allDivs[5].style.backgroundImage === red && allDivs[8].style.backgroundImage === red) {
       document.getElementById('message').innerHTML = '<p>Red Boxer Wins!</p>';
-      clearBoard();
+        crowd.play()
+        crowd.currentTime = 0;
+        delay = setTimeout( clearBoard, 3000 );
+
+        countRedWins = countRedWins + 1
+        document.querySelector('.redScore').innerHTML  = Number(countRedWins)
     }
     if (allDivs[0].style.backgroundImage === red && allDivs[4].style.backgroundImage === red && allDivs[8].style.backgroundImage === red) {
       document.getElementById('message').innerHTML = '<p>Red Boxer Wins!</p>';
-      clearBoard();
+        crowd.play()
+        crowd.currentTime = 0;
+        delay = setTimeout( clearBoard, 3000 );
+
+        countRedWins = countRedWins + 1
+        document.querySelector('.redScore').innerHTML  = Number(countRedWins)
     }
     if (allDivs[2].style.backgroundImage === red && allDivs[4].style.backgroundImage === red && allDivs[6].style.backgroundImage === red) {
       document.getElementById('message').innerHTML = '<p>Red Boxer Wins!</p>';
-      clearBoard();
-    }
+        crowd.play()
+        crowd.currentTime = 0;
+        delay = setTimeout( clearBoard, 3000 );
+
+        countRedWins = countRedWins + 1
+        document.querySelector('.redScore').innerHTML  = Number(countRedWins)
+      }
     }
     checkForWin();
 
-
-moves++
-
-if (moves === 9) {
+if (moves === 9 && !countRedWins && !countBlueWins ) {
   document.getElementById('message').innerHTML = '<p>It\'s a Draw! Play Again</p>';
-  clearBoard();
+  delay = setTimeout( clearBoard, 3000 );
   }
+
 console.log(moves);
 
 }
@@ -158,57 +246,14 @@ allDivs.forEach(function(elem) {
 });
 
 
-//  var winningCombos = [
-//     [0, 1, 2],
-//     [3, 4, 5],
-//     [6, 7, 8],
-//     [0, 3, 6],
-//     [1, 4, 7],
-//     [2, 5, 8],
-//     [0, 4, 8],
-//     [2, 4, 6],
-//   ];
-//  var countBlueWins = 0;
-//  var countRedWins = 0;
-//  var blueMoves = []
-//  var redMoves = []
-//  var blueScore = document.querySelector(".blueScore")
-//  var redScore = document.querySelector(".redScore")
-//
-//  function checkForWin() {
-//   for (var i = 0; i < winningCombos.length; i++) {
-//     var combo = winningCombos[i]
-//
-//     if ((blueMoves.indexOf(combo[0]) > -1)
-//       && (blueMoves.indexOf(combo[1]) > -1)
-//       && (blueMoves.indexOf(combo[2]) > -1)) {
-//       document.getElementById('message').innerHTML = '<p>Blue Boxer Wins!</p>';
-//        crowd.play()
-//        crowd.currentTime = 0;
-//       clearBoard();
-//
-//       countBlueWins = countBlueWins + 1
-//
-//       blueScore.textContent = Number(countBlueWins)
-//
-//     } else if ((redMoves.indexOf(combo[0]) > -1)
-//       && (redMoves.indexOf(combo[1]) > -1)
-//       && (redMoves.indexOf(combo[2]) > -1)) {
-//       document.getElementById('message').innerHTML = '<p>Red Boxer Wins!</p>';
-//        crowd.play()
-//        crowd.currentTime = 0;
-//       clearBoard();
-//
-//       countRedWins = countRedWins + 1
-//
-//       redScore.textContent = Number(countRedWins)
-//
-//     } else {
-//       if (moves === 9) {
-//         document.getElementById('message').innerHTML = '<p>It\'s a Draw! Play Again</p>';
-//         clearBoard();
-//         }
-//       console.log(moves);
-//     }
-//   }
-// }
+  // var winningCombos = [
+  //     ['TL', 'TM', 'TR'],
+  //     ['ML', 'MM', 'MR'],
+  //     ['BL', 'BM', 'BR'],
+  //     ['TL', 'ML', 'BL'],
+  //     ['TM', 'MM', 'BM'],
+  //     ['TR', 'MR', 'BR'],
+  //     ['TL', 'MM', 'BR'],
+  //     ['TR', 'MM', 'BL'],
+  //   ];
+  //
