@@ -24,4 +24,4 @@ I used setTimeout() to delay the clear board function so the winner message play
 - Make code DRY-er!
 - I have made the board as responsive as possible but would like to add media queries so the game will look good on a smaller device.
 
-![Game](Tic Tac Toe to Toe.png)
+![Game](GameScreenshot1.png)
