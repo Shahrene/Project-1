@@ -34,7 +34,7 @@
     background-image: -ms-linear-gradient(top, #0F1BBC, #D20202);
     background-image: -o-linear-gradient(top, #0F1BBC, #D20202);
     background-image: linear-gradient(to bottom, #0F1BBC, #D20202);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#0F1BBC, endColorstr=#D20202);
-    }
+  }
 
   button:hover {
      border: 0px solid #D20202;
@@ -44,7 +44,7 @@
      background-image: -ms-linear-gradient(top, #D20202, #0F1BBC);
      background-image: -o-linear-gradient(top, #D20202, #0F1BBC);
      background-image: linear-gradient(to bottom, #D20202, #0F1BBC);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#D20202, endColorstr=#0F1BBC);
-    }
+  }
 
   .container {
     display: flex;
@@ -70,7 +70,8 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-}
+ }
+ 
   .threed {
     border: 1px solid #00000052;
     height: 20%;
@@ -85,30 +86,28 @@
     animation-iteration-count: 1;
   }
 
-
-
   .threed:hover {
-          box-shadow: 4px 4px #B4B5B5;
-          -webkit-transform: translateX(-4px);
-          transform: translateX(-4px);
+    box-shadow: 4px 4px #B4B5B5;
+    -webkit-transform: translateX(-4px);
+    transform: translateX(-4px);
   }
 
-.redScore {
-  float: right;
-  margin-right: 6px;
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.5em;
-  color: #D20202;
-  font-weight: bold;
-}
+  .redScore {
+    float: right;
+    margin-right: 6px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5em;
+    color: #D20202;
+    font-weight: bold;
+  }
 
-.blueScore {
-  margin-left: 6px;
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.5em;
-  color: #0F1BBC;
-  font-weight: bold;
-}
+  .blueScore {
+    margin-left: 6px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5em;
+    color: #0F1BBC;
+    font-weight: bold;
+  }
 
   #message {
     font-family: 'Poppins', sans-serif;

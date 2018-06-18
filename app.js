@@ -1,4 +1,3 @@
-console.log('tic tac toe');
 
 //create grid (divs), two shapes for peices (X & O)
 //perhaps use .png graphics and animate.
@@ -86,12 +85,12 @@ var gamePlay  = function(event) {
 
     if (allDivs[0].style.backgroundImage === blue && allDivs[1].style.backgroundImage === blue && allDivs[2].style.backgroundImage === blue) {
       document.getElementById('message').innerHTML = '<p>Blue Boxer Wins!</p>';
-          crowd.play()
-          crowd.currentTime = 0;
-          delay = setTimeout( clearBoard, 3000 );
+        crowd.play()
+        crowd.currentTime = 0;
+        delay = setTimeout( clearBoard, 3000 );
 
-          countBlueWins = countBlueWins + 1
-          document.querySelector('.blueScore').innerHTML = Number(countBlueWins)
+        countBlueWins = countBlueWins + 1
+        document.querySelector('.blueScore').innerHTML = Number(countBlueWins)
     }
     if (allDivs[3].style.backgroundImage === blue && allDivs[4].style.backgroundImage === blue && allDivs[5].style.backgroundImage === blue) {
       document.getElementById('message').innerHTML = '<p>Blue Boxer Wins!</p>';
@@ -159,12 +158,12 @@ var gamePlay  = function(event) {
 
     if (allDivs[0].style.backgroundImage === red && allDivs[1].style.backgroundImage === red && allDivs[2].style.backgroundImage === red) {
       document.getElementById('message').innerHTML = '<p>Red Boxer Wins!</p>';
-          crowd.play()
-          crowd.currentTime = 0;
-          delay = setTimeout( clearBoard, 3000 );
+        crowd.play()
+        crowd.currentTime = 0;
+        delay = setTimeout( clearBoard, 3000 );
 
-          countRedWins = countRedWins + 1
-          document.querySelector('.redScore').innerHTML  = Number(countRedWins)
+        countRedWins = countRedWins + 1
+        document.querySelector('.redScore').innerHTML  = Number(countRedWins)
     }
     if (allDivs[3].style.backgroundImage === red && allDivs[4].style.backgroundImage === red && allDivs[5].style.backgroundImage === red) {
       document.getElementById('message').innerHTML = '<p>Red Boxer Wins!</p>';
