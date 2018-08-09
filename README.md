@@ -23,5 +23,6 @@ I used setTimeout() to delay the clear board function so the winner message play
 
 - Make code DRY-er!
 - I have made the board as responsive as possible but would like to add media queries so the game will look good on a smaller device.
+- Not compatible with browsers such as Firefox currently, would like to work out why
 
 ![Game Screenshot](GameScreenshot1.png)
